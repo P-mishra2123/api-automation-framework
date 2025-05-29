@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-05-29T09:54:58.663280" rpa="false" schemaversion="5">
+<suite id="s1" name="Reqres List Users Api" source="/home/pmishra6/api_automation_framework/tests/reqres_list_users_api.robot">
+<test id="s1-t1" name="TC01 Validate Response Status Code" line="7">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-05-29T09:54:58.768199" level="INFO">${params} = {'page': '2'}</msg>
+<var>${params}</var>
+<arg>${PAGE_PARAM}=${PAGE_VALUE}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-05-29T09:54:58.767747" elapsed="0.000491"/>
+</kw>
+<kw name="Send Get Request" owner="APIKeywords">
+<msg time="2025-05-29T09:55:02.166344" level="INFO">Status Code: 200</msg>
+<msg time="2025-05-29T09:55:02.166548" level="INFO">Response: {"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}}</msg>
+<msg time="2025-05-29T09:55:02.166694" level="INFO">Validating Status Code → Expected: 200, Actual: 200</msg>
+<msg time="2025-05-29T09:55:02.167264" level="INFO">${response} = {'page': 2, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces...</msg>
+<var>${response}</var>
+<arg>${BASE_URL}</arg>
+<arg>${LIST_USERS_EP}</arg>
+<arg>params=${params}</arg>
+<arg>expected_status_code=200</arg>
+<status status="PASS" start="2025-05-29T09:54:58.768438" elapsed="3.398892"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-05-29T09:55:02.168258" level="INFO">Length is 6.</msg>
+<arg>${response}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-05-29T09:55:02.167797" elapsed="0.000586"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Response: ${response}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-05-29T09:55:02.168787" elapsed="0.000539"/>
+</kw>
+<status status="PASS" start="2025-05-29T09:54:58.766666" elapsed="3.403146"/>
+</test>
+<test id="s1-t2" name="TC02 Validate Page Number" line="13">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-05-29T09:55:02.171932" level="INFO">${params} = {'page': '2'}</msg>
+<var>${params}</var>
+<arg>${PAGE_PARAM}=${PAGE_VALUE}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-05-29T09:55:02.171282" elapsed="0.000715"/>
+</kw>
+<kw name="Send Get Request" owner="APIKeywords">
+<msg time="2025-05-29T09:55:04.244651" level="INFO">Status Code: 200</msg>
+<msg time="2025-05-29T09:55:04.244883" level="INFO">Response: {"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}}</msg>
+<msg time="2025-05-29T09:55:04.245521" level="INFO">${response} = {'page': 2, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces...</msg>
+<var>${response}</var>
+<arg>${BASE_URL}</arg>
+<arg>${LIST_USERS_EP}</arg>
+<arg>params=${params}</arg>
+<status status="PASS" start="2025-05-29T09:55:02.172402" elapsed="2.073194"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-05-29T09:55:04.247446" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response['page']}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-05-29T09:55:04.246126" elapsed="0.001470"/>
+</kw>
+<status status="PASS" start="2025-05-29T09:55:02.170470" elapsed="2.077541"/>
+</test>
+<test id="s1-t3" name="TC03 Validate Number of Users Returned" line="18">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-05-29T09:55:04.250485" level="INFO">${params} = {'page': '2'}</msg>
+<var>${params}</var>
+<arg>${PAGE_PARAM}=${PAGE_VALUE}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-05-29T09:55:04.249445" elapsed="0.001156"/>
+</kw>
+<kw name="Send Get Request" owner="APIKeywords">
+<msg time="2025-05-29T09:55:07.399012" level="INFO">Status Code: 200</msg>
+<msg time="2025-05-29T09:55:07.399204" level="INFO">Response: {"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}}</msg>
+<msg time="2025-05-29T09:55:07.399807" level="INFO">${response} = {'page': 2, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces...</msg>
+<var>${response}</var>
+<arg>${BASE_URL}</arg>
+<arg>${LIST_USERS_EP}</arg>
+<arg>params=${params}</arg>
+<status status="PASS" start="2025-05-29T09:55:04.251129" elapsed="3.148748"/>
+</kw>
+<kw name="Length Should Be" owner="BuiltIn">
+<msg time="2025-05-29T09:55:07.401408" level="INFO">Length is 6.</msg>
+<arg>${response['data']}</arg>
+<arg>6</arg>
+<doc>Verifies that the length of the given item is correct.</doc>
+<status status="PASS" start="2025-05-29T09:55:07.400248" elapsed="0.001275"/>
+</kw>
+<status status="PASS" start="2025-05-29T09:55:04.248632" elapsed="3.153324"/>
+</test>
+<test id="s1-t4" name="TC04 Validate All User Fields Exist" line="23">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-05-29T09:55:07.404232" level="INFO">${params} = {'page': '2'}</msg>
+<var>${params}</var>
+<arg>${PAGE_PARAM}=${PAGE_VALUE}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-05-29T09:55:07.403497" elapsed="0.000807"/>
+</kw>
+<kw name="Send Get Request" owner="APIKeywords">
+<msg time="2025-05-29T09:55:18.664040" level="INFO">Status Code: 200</msg>
+<msg time="2025-05-29T09:55:18.664250" level="INFO">Response: {"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}}</msg>
+<msg time="2025-05-29T09:55:18.664826" level="INFO">${response} = {'page': 2, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces...</msg>
+<var>${response}</var>
+<arg>${BASE_URL}</arg>
+<arg>${LIST_USERS_EP}</arg>
+<arg>params=${params}</arg>
+<status status="PASS" start="2025-05-29T09:55:07.404649" elapsed="11.260246"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>id</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.666712" elapsed="0.000416"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>email</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.667382" elapsed="0.000360"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>first_name</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.667976" elapsed="0.000349"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>last_name</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.668562" elapsed="0.000367"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>avatar</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.669145" elapsed="0.000268"/>
+</kw>
+<var name="${user}">{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces/7-image.jpg'}</var>
+<status status="PASS" start="2025-05-29T09:55:18.666429" elapsed="0.003059"/>
+</iter>
+<iter>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>id</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.669866" elapsed="0.000296"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>email</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.670347" elapsed="0.000274"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>first_name</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.670837" elapsed="0.000425"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>last_name</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.671589" elapsed="0.000461"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>avatar</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.672364" elapsed="0.000444"/>
+</kw>
+<var name="${user}">{'id': 8, 'email': 'lindsay.ferguson@reqres.in', 'first_name': 'Lindsay', 'last_name': 'Ferguson', 'avatar': 'https://reqres.in/img/faces/8-image.jpg'}</var>
+<status status="PASS" start="2025-05-29T09:55:18.669716" elapsed="0.003230"/>
+</iter>
+<iter>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>id</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.673555" elapsed="0.000481"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>email</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.674348" elapsed="0.000351"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>first_name</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.674902" elapsed="0.000273"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>last_name</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.675356" elapsed="0.000260"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>avatar</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.675803" elapsed="0.000259"/>
+</kw>
+<var name="${user}">{'id': 9, 'email': 'tobias.funke@reqres.in', 'first_name': 'Tobias', 'last_name': 'Funke', 'avatar': 'https://reqres.in/img/faces/9-image.jpg'}</var>
+<status status="PASS" start="2025-05-29T09:55:18.673306" elapsed="0.002829"/>
+</iter>
+<iter>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>id</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.676493" elapsed="0.000284"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>email</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.676944" elapsed="0.000204"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>first_name</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.677284" elapsed="0.000197"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>last_name</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.677618" elapsed="0.000206"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>avatar</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.677958" elapsed="0.000193"/>
+</kw>
+<var name="${user}">{'id': 10, 'email': 'byron.fields@reqres.in', 'first_name': 'Byron', 'last_name': 'Fields', 'avatar': 'https://reqres.in/img/faces/10-image.jpg'}</var>
+<status status="PASS" start="2025-05-29T09:55:18.676340" elapsed="0.001866"/>
+</iter>
+<iter>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>id</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.678568" elapsed="0.000256"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>email</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.678981" elapsed="0.000215"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>first_name</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.679341" elapsed="0.000171"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>last_name</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.679614" elapsed="0.000153"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>avatar</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.679868" elapsed="0.000145"/>
+</kw>
+<var name="${user}">{'id': 11, 'email': 'george.edwards@reqres.in', 'first_name': 'George', 'last_name': 'Edwards', 'avatar': 'https://reqres.in/img/faces/11-image.jpg'}</var>
+<status status="PASS" start="2025-05-29T09:55:18.678442" elapsed="0.001612"/>
+</iter>
+<iter>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>id</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.680247" elapsed="0.000294"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>email</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.680650" elapsed="0.000159"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>first_name</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.680912" elapsed="0.000149"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>last_name</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.681164" elapsed="0.000146"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${user}</arg>
+<arg>avatar</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.681410" elapsed="0.000149"/>
+</kw>
+<var name="${user}">{'id': 12, 'email': 'rachel.howell@reqres.in', 'first_name': 'Rachel', 'last_name': 'Howell', 'avatar': 'https://reqres.in/img/faces/12-image.jpg'}</var>
+<status status="PASS" start="2025-05-29T09:55:18.680166" elapsed="0.001435"/>
+</iter>
+<var>${user}</var>
+<value>@{response['data']}</value>
+<status status="PASS" start="2025-05-29T09:55:18.665170" elapsed="0.016466"/>
+</for>
+<status status="PASS" start="2025-05-29T09:55:07.402596" elapsed="11.279253"/>
+</test>
+<test id="s1-t5" name="TC05 Validate Specific User Data - ID 7" line="34">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-05-29T09:55:18.683069" level="INFO">${params} = {'page': '2'}</msg>
+<var>${params}</var>
+<arg>${PAGE_PARAM}=${PAGE_VALUE}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-05-29T09:55:18.682702" elapsed="0.000403"/>
+</kw>
+<kw name="Send Get Request" owner="APIKeywords">
+<msg time="2025-05-29T09:57:33.819847" level="INFO">Status Code: 200</msg>
+<msg time="2025-05-29T09:57:33.820045" level="INFO">Response: {"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}}</msg>
+<msg time="2025-05-29T09:57:33.820636" level="INFO">${response} = {'page': 2, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces...</msg>
+<var>${response}</var>
+<arg>${BASE_URL}</arg>
+<arg>${LIST_USERS_EP}</arg>
+<arg>params=${params}</arg>
+<status status="PASS" start="2025-05-29T09:55:18.683278" elapsed="135.137451"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-05-29T09:57:33.822811" level="INFO">${user} = {'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces/7-image.jpg'}</msg>
+<var>${user}</var>
+<arg>${response['data']}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-05-29T09:57:33.821222" elapsed="0.001660"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-05-29T09:57:33.824319" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${user['id']}</arg>
+<arg>7</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-05-29T09:57:33.823282" elapsed="0.001163"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${user['email']}</arg>
+<arg>michael.lawson@reqres.in</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-05-29T09:57:33.824825" elapsed="0.001069"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${user['first_name']}</arg>
+<arg>Michael</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-05-29T09:57:33.826292" elapsed="0.001106"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${user['last_name']}</arg>
+<arg>Lawson</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-05-29T09:57:33.827793" elapsed="0.001009"/>
+</kw>
+<status status="PASS" start="2025-05-29T09:55:18.682169" elapsed="135.146920"/>
+</test>
+<test id="s1-t6" name="TC06 Validate Support Block" line="43">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-05-29T09:57:33.830991" level="INFO">${params} = {'page': '2'}</msg>
+<var>${params}</var>
+<arg>${PAGE_PARAM}=${PAGE_VALUE}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-05-29T09:57:33.830405" elapsed="0.000647"/>
+</kw>
+<kw name="Send Get Request" owner="APIKeywords">
+<msg time="2025-05-29T09:57:37.986273" level="INFO">Status Code: 200</msg>
+<msg time="2025-05-29T09:57:37.986482" level="INFO">Response: {"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}}</msg>
+<msg time="2025-05-29T09:57:37.987268" level="INFO">${response} = {'page': 2, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces...</msg>
+<var>${response}</var>
+<arg>${BASE_URL}</arg>
+<arg>${LIST_USERS_EP}</arg>
+<arg>params=${params}</arg>
+<status status="PASS" start="2025-05-29T09:57:33.831317" elapsed="4.156026"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${response['support']}</arg>
+<arg>url</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:57:37.987801" elapsed="0.001567"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${response['support']}</arg>
+<arg>text</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2025-05-29T09:57:37.989789" elapsed="0.000975"/>
+</kw>
+<status status="PASS" start="2025-05-29T09:57:33.829624" elapsed="4.161513"/>
+</test>
+<status status="PASS" start="2025-05-29T09:54:58.663985" elapsed="159.328089"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Reqres List Users Api" id="s1" pass="6" fail="0" skip="0">Reqres List Users Api</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
